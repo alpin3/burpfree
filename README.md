@@ -23,8 +23,12 @@ docker run -it -v /work:/work -p 8080:8080 alpin3/burpfree
 ```
 
 X11 forwarding:
+
 ```
-docker run -it -v /tmp/.X11-unix/:/tmp/.X11-unix -e DISPLAY=$DISPLAY -p 8080:8080 burpfree
+XSOCK=/tmp/.X11-unix
+XAUTH=/tmp/.docker.xauth
+xauth nlist :0 | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
+docker run -v $XSOCK:$XSOCK -v $XAUTH:$XAUTH -e XAUTHORITY=$XAUTH alpin3/burpfree
 ```
 
 ### Todo

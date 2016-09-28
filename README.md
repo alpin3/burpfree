@@ -1,6 +1,6 @@
 # alpin3/burpfree
 
-Multiple purpose MariaDB/MySQL based on Alpine
+Portswigger Burp Free on Alpine
 
 Image is based on the [openjdk](https://hub.docker.com/_/openjdk/) base image
 
